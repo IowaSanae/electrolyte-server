@@ -1,4 +1,5 @@
 import chatModel from '~/models/chat'
+import axios from 'axios';
 import { generateChatid } from '~/utils/gennerateNumber'
 const db = require('../../models/index')
 
@@ -35,6 +36,7 @@ const ChatService = {
             to_user_name: payload.shop.username
         })
         await newChat.save()
+
         const chats = chatModel.find({ room_id: payload.roomid })
         return chats
     },
@@ -43,7 +45,11 @@ const ChatService = {
 
         const chats = chatModel.find({ room_id: roomid })
         return chats
-    }
+    },
+
+
 }
 
 export default ChatService
+
+
