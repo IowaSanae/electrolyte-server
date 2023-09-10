@@ -1,5 +1,5 @@
 const templateResetPassword = (email: string, resetToken: string) => {
-  return `
+   return `
    <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8"
       style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
       <tr>
@@ -23,17 +23,13 @@ const templateResetPassword = (email: string, resetToken: string) => {
                            <td style="padding:0 35px;">
                               <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Bạn vừa yêu cầu đổi mật khẩu
                               </h1>
-                              <span
-                                 style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
-                              Xin vui lòng click vào link dưới đây để thay đổi mật khẩu của bạn.
-                              Link này sẽ hết hạn sau 15 phút kể từ bây giờ.
-
-
+                                 Xin vui lòng click vào link dưới đây để thay đổi mật khẩu của bạn.
+                                 Link này sẽ hết hạn sau 15 phút kể từ bây giờ.
                            </td>
                         </tr>
-                        <tr>
-                           <td style="height:40px;">
-                            <a href=${process.env.URL_BACKEND}/resetPassword/${email}/${resetToken}
+                        <tr style="margin-bottom: 10px;">
+                           <td>
+                           <a href=${process.env.URL_BACKEND}/resetPassword/${email}/${resetToken}
                            style="background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">Đổi mật khẩu</a></td>
                         </tr>
                      </table>

@@ -8,9 +8,7 @@ export const formatCategory = (categoryTreeList: any[]): any[] => {
       catid: categoryTreeList[i]?.catid,
       id: categoryTreeList[i]?.id,
       name: categoryTreeList[i]?.name,
-      display_name: categoryTreeList[i]?.display_name,
-      unselected_image: categoryTreeList[i]?.unselected_image,
-      selected_image: categoryTreeList[i]?.selected_image
+      display_name: categoryTreeList[i]?.display_name
     }
   }
 

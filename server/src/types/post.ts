@@ -2,16 +2,13 @@ interface Post {
   id: number
   itemid: number
   shopid: number
-  currency: string
   stock: number
   status: number
   sold: number
-  liked_count: number
   catid: number
   cmt_count: number
   discount: string
   raw_discount: number
-  size_chart: string
   shop_name: string
   transparent_background_image: string
   images: string
@@ -27,9 +24,7 @@ interface Post {
   shop_rating: number
   filename: string
   liked: boolean
-  ctime: Date
   show_free_shipping: boolean
-  is_video: boolean
   is_attributes: boolean
   createdAt: Date
   updatedAt: Date

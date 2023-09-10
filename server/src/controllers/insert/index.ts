@@ -1,4 +1,4 @@
-import { Response } from 'express';
+
 const db = require("../../models/index");
 const HomeCategory = require("../../../../data/category_tree.json");
 const banner = require("../../../../data/banner.json");
@@ -38,7 +38,7 @@ const InsertControllers = {
       res.status(200).send("app processed successfully.");
     } catch (error) {
       console.log("Lỗi hệ thống", error);
-      res.status(500).send("Internal Server Error");
+      res.status(500).send("Lỗi hệ thống");
     }
   },
 
@@ -79,7 +79,7 @@ const InsertControllers = {
       res.status(200).send("Shops processed successfully.");
     } catch (error) {
       console.log("Error processing shops:", error);
-      res.status(500).send("Internal server error.");
+      res.status(500).send("Lỗi hệ thống.");
     }
   },
 };
@@ -90,11 +90,9 @@ const insertPost = (item: any) => {
     {
       itemid: item?.itemid,
       shopid: item?.shopid,
-      currency: item?.currency,
       stock: item?.stock,
       status: item?.status,
       sold: item?.sold,
-      liked_count: item?.liked_count,
       promotion_id: item?.promotion_id,
       video_id: item?.video_id,
       discountid: item?.itemid,
@@ -120,12 +118,8 @@ const insertPost = (item: any) => {
       price_min_before_discount: +item?.price_min_before_discount,
       price_max_before_discount: +item?.price_max_before_discount,
       shop_rating: item?.shop_rating,
-      liked: item?.liked ? true : false,
       show_free_shipping: item?.show_free_shipping,
-      is_video: item?.video_id,
       is_attributes: item?.is_attributes,
-      ctime: item?.ctime,
-      createdAt: item?.ctime,
     },
     { ignoreDuplicates: true }
   );
@@ -146,16 +140,15 @@ const insertTierVariations = (item: any) => {
 };
 
 const insertAttributes = (item: any) => {
-  if (item?.attributes?.attributeid !== null) {
-    db.Attribute.create(
-      {
-        attributeid: item?.attributes?.attributeid,
-        name: item?.attributes?.attributes,
-        value: item?.attributes?.attributes,
-      },
-      { ignoreDuplicates: true }
-    );
-  }
+  if (item?.attributes?.attributeid === null && item?.attributes?.name === null) return
+  db.Attribute.create(
+    {
+      attributeid: item?.attributes?.attributeid,
+      name: item?.attributes?.attributes,
+      value: item?.attributes?.attributes,
+    },
+    { ignoreDuplicates: true }
+  );
 };
 
 const insertVideoInfoList = (item: any) => {
@@ -208,8 +201,6 @@ const insertHomeCategory = () => {
       name: item?.name,
       display_name: item?.display_name,
       image: `https://cf.shopee.vn/file/${item?.image}`,
-      unselected_image: `https://cf.shopee.vn/file/${item?.unselected_image}`,
-      selected_image: `https://cf.shopee.vn/file/${item?.selected_image}`,
       level: item?.level,
     });
     item?.children?.map((ele: any) => {
@@ -219,8 +210,6 @@ const insertHomeCategory = () => {
         name: ele?.name,
         display_name: ele?.display_name,
         image: `https://cf.shopee.vn/file/${ele?.image}`,
-        unselected_image: ele?.unselected_image,
-        selected_image: ele?.selected_image,
         level: ele?.level,
       });
     });
@@ -228,7 +217,6 @@ const insertHomeCategory = () => {
 };
 
 const insertComment = (item: any) => {
-  if (item?.shopid !== 162631527) return
   db.Comment.create(
     {
       cmtid: item.cmtid,
@@ -254,20 +242,11 @@ const insertComment = (item: any) => {
             })
           )
           : null,
-      cover: item?.videos?.length >= 0 ? item?.videos[0]?.cover : null,
       videos: item?.videos?.length >= 0 ? item?.videos[0]?.url : null,
       model_name: item?.product_items[0].model_name,
-      options:
-        item?.product_items[0]?.options?.length > 0
-          ? item?.product_items[0]?.options[0]
-          : null,
       is_replied: item.ItemRatingReply === null ? false : true,
       level: 0,
-      is_shop: item.ItemRatingReply === null ? 0 : 1,
       like_count: item?.like_count ? item?.like_count : 0,
-      liked: false,
-      mtime: formatDate(item?.mtime),
-      ctime: formatDate(item?.ctime),
       createdAt: formatDate(item?.mtime),
     },
     { ignoreDuplicates: true }
@@ -288,17 +267,11 @@ const insertComment = (item: any) => {
         author_username: null,
         author_portrait: null,
         images: null,
-        cover: null,
         videos: null,
         model_name: null,
-        options: null,
         is_replied: true,
         level: 1,
-        is_shop: 1,
         like_count: null,
-        liked: null,
-        mtime: formatDate(item.ItemRatingReply.mtime),
-        ctime: formatDate(item.ItemRatingReply.ctime),
         createdAt: formatDate(item.ItemRatingReply.mtime),
       },
       { ignoreDuplicates: true }
@@ -311,40 +284,26 @@ const insertShop = (item: any) => {
     {
       shopid: item?.data?.shopid,
       userid: item?.data?.userid,
-      place: item?.data?.shop_location,
       portrait:
         item?.data?.account?.portrait === ""
           ? null
           : `https://cf.shopee.vn/file/${item?.data?.account?.portrait}`,
       username: item?.data?.account?.username,
-      shop_location: item?.data?.shop_location,
       item_count: item?.data?.item_count,
       name: item?.data?.name,
       cover:
         item?.data?.cover === ""
           ? null
           : `https://cf.shopee.vn/file/${item?.data?.cover}`,
-      rating_star: item?.data?.rating_star,
-      rating_bad: item?.data?.rating_bad,
-      rating_good: item?.data?.rating_good,
-      rating_normal: item?.data?.rating_normal,
-      follower_count: item?.data?.follower_count,
       status: item?.data?.status,
-      response_time: item?.data?.response_time,
       description: item?.data?.description,
-      followed: false,
-      ctime: formatDate(item?.data?.ctime),
-      mtime: formatDate(item?.data?.mtime),
-      response_rate: item?.data?.response_rate,
-      country: item?.data?.country,
-      last_active_time: item?.data?.last_active_time,
-      createdAt: formatDate(item?.data?.ctime),
     },
     { ignoreDuplicates: true }
   );
 };
 
 const insertIndustry = (item: any, index: number) => {
+  if (item?.path[index]?.category_id !== 100644 && item?.path[index - 1]?.category_id !== 100644 && item?.path[index]?.category_id !== 100013 && item?.path[index - 1]?.category_id !== 100013 && item?.path[index]?.category_id !== 100635 && item?.path[index - 1]?.category_id !== 100635 && item?.path[index]?.category_id !== 101455 && item?.path[index - 1]?.category_id !== 101455) return
   db.Industry.create(
     {
       catid: item?.path[index]?.category_id,

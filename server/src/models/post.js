@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       Post.belongsTo(models.Video, { foreignKey: 'video_id', targetKey: 'video_id', as: 'video' }) // done
       Post.belongsTo(models.Attribute, { foreignKey: 'attributeid', targetKey: 'attributeid', as: 'attributes' })
       Post.belongsTo(models.Shop, { foreignKey: 'shopid', targetKey: 'shopid', as: 'shop_info' })
-      Post.hasOne(models.Like, { foreignKey: 'itemid', as: 'likeDetail' })
       Post.hasOne(models.Cart, { foreignKey: 'itemid', as: 'overview' })
     }
   }
@@ -26,16 +25,13 @@ module.exports = (sequelize, DataTypes) => {
       attributeid: DataTypes.BIGINT,
       promotion_id: DataTypes.BIGINT,
       discountid: DataTypes.BIGINT,
-      currency: DataTypes.STRING,
       stock: DataTypes.INTEGER,
       status: DataTypes.INTEGER,
       sold: DataTypes.INTEGER,
-      liked_count: DataTypes.INTEGER,
       catid: DataTypes.INTEGER,
       cmt_count: DataTypes.INTEGER,
       discount: DataTypes.STRING,
       raw_discount: DataTypes.INTEGER,
-      size_chart: DataTypes.STRING,
       shop_name: DataTypes.STRING,
       transparent_background_image: DataTypes.STRING,
       images: DataTypes.STRING,
@@ -53,9 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       shop_rating: DataTypes.INTEGER,
       filename: DataTypes.STRING,
       liked: DataTypes.BOOLEAN,
-      ctime: DataTypes.DATE,
       show_free_shipping: DataTypes.BOOLEAN,
-      is_video: DataTypes.BOOLEAN,
       is_attributes: DataTypes.BOOLEAN
     },
     {

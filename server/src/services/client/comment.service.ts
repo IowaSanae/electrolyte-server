@@ -44,19 +44,15 @@ const CommentService = {
           where: { parent_cmtid: item.cmtid },
           attributes: {
             exclude: [
-              'id',
               'like_count',
-              'liked',
               'videos',
               'model_name',
-              'options',
               'is_replied',
               'rating',
               'rating_star',
               'author_username',
               'author_portrait',
               'images',
-              'cover',
               'status'
             ]
           }
@@ -115,9 +111,7 @@ const CommentService = {
         model_name: payload?.model_name,
         options: payload?.option,
         level: 0,
-        is_shop: false,
         like_count: 0,
-        liked: false
       })
       return {
         err: response ? 0 : 1,

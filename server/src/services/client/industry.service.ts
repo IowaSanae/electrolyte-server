@@ -34,6 +34,7 @@ const GetAllIndustryService = {
         offset: offset, // Add the offset and limit here
         limit: fLimit
       })
+      console.log(response)
       const total = Math.ceil(response2.count / +fLimit)
       return {
         err: response ? 0 : 1,

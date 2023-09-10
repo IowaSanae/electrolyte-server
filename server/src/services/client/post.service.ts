@@ -33,8 +33,6 @@ const PostService = {
           'shop_rating',
           'filename',
           'shop_name',
-          'liked',
-          'ctime',
           'show_free_shipping',
         ]
       })

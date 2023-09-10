@@ -9,8 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       display_name: DataTypes.STRING,
       image: DataTypes.STRING,
-      unselected_image: DataTypes.STRING,
-      selected_image: DataTypes.STRING,
       level: DataTypes.INTEGER
     },
     {

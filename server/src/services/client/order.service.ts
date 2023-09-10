@@ -47,7 +47,6 @@ const OrderService = {
                 'shop_rating',
                 'filename',
                 'shop_name',
-                'ctime',
                 'show_free_shipping'
               ]
             })
@@ -142,7 +141,6 @@ const OrderService = {
                 'filename',
                 'shop_name',
                 'liked',
-                'ctime',
                 'show_free_shipping'
               ]
             })
@@ -226,8 +224,6 @@ const OrderService = {
             'shop_rating',
             'filename',
             'shop_name',
-            'liked',
-            'ctime',
             'show_free_shipping'
           ]
         })

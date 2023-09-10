@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       userid: DataTypes.STRING,
       shopid: DataTypes.BIGINT,
       level: DataTypes.INTEGER,
-      is_shop: DataTypes.BOOLEAN,
       rating: DataTypes.INTEGER,
       status: DataTypes.INTEGER,
       rating_star: DataTypes.INTEGER,
@@ -20,14 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       author_username: DataTypes.STRING,
       author_portrait: DataTypes.STRING,
       images: DataTypes.TEXT,
-      cover: DataTypes.STRING,
       videos: DataTypes.TEXT,
       model_name: DataTypes.STRING,
-      options: DataTypes.TEXT,
-      liked: DataTypes.BOOLEAN,
-      is_replied: DataTypes.BOOLEAN,
-      mtime: DataTypes.DATE,
-      ctime: DataTypes.DATE
+      is_replied: DataTypes.BOOLEAN
     },
     {
       sequelize,

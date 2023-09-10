@@ -9,28 +9,71 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-
-  "host": "http://localhost:3000",
+  "host": "electrolyte-server.onrender.com",
   "basePath": "/api/client",
   "tags": [
-    { "name": "Auth", "description": "User authentication and authorization functionality." },
-    { "name": "User", "description": "User information and management." },
-    { "name": "Post", "description": "Management of posts or content." },
-    { "name": "Cart", "description": "Shopping cart functionality for e-commerce applications." },
-    { "name": "Order", "description": "Order management and purchasing process." },
-    { "name": "Like", "description": "Functionality for liking" },
-    { "name": "Search", "description": "Functionality for searching" },
-    { "name": "Banner", "description": "Management of banners and advertisement images." },
-    { "name": "CategoryTree", "description": "Hierarchical representation of categories." },
-    { "name": "Comment", "description": "User comments and opinions management." },
-    { "name": "Industry", "description": "Industry information." },
-    { "name": "Notification", "description": "User notifications within the application." },
-    { "name": "Shop", "description": "Shop or business information and management" }
+    {
+      "name": "Auth",
+      "description": "User authentication and authorization functionality."
+    },
+    {
+      "name": "User",
+      "description": "User information and management."
+    },
+    {
+      "name": "Post",
+      "description": "Management of posts or content."
+    },
+    {
+      "name": "Cart",
+      "description": "Shopping cart functionality for e-commerce applications."
+    },
+    {
+      "name": "Order",
+      "description": "Order management and purchasing process."
+    },
+    {
+      "name": "Like",
+      "description": "Functionality for liking"
+    },
+    {
+      "name": "Search",
+      "description": "Functionality for searching"
+    },
+    {
+      "name": "Banner",
+      "description": "Management of banners and advertisement images."
+    },
+    {
+      "name": "CategoryTree",
+      "description": "Hierarchical representation of categories."
+    },
+    {
+      "name": "Comment",
+      "description": "User comments and opinions management."
+    },
+    {
+      "name": "Industry",
+      "description": "Industry information."
+    },
+    {
+      "name": "Notification",
+      "description": "User notifications within the application."
+    },
+    {
+      "name": "Shop",
+      "description": "Shop or business information and management"
+    }
   ],
-
-  "schemes": ["http"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "securityDefinitions": {
     "Bearer": {
       "type": "apiKey",
@@ -38,11 +81,12 @@
       "in": "header"
     }
   },
-
   "paths": {
     "/auth/register": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Register a new user",
         "description": "Registers a new user in the system.",
         "parameters": [
@@ -52,11 +96,21 @@
             "description": "User object that contains the registration details",
             "required": false,
             "schema": {
-              "required": ["name", "photoUrls"],
+              "required": [
+                "name",
+                "photoUrls"
+              ],
               "properties": {
-                "name": { "type": "string" },
-                "email": { "type": "string", "format": "email" },
-                "password": { "type": "string" }
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -95,10 +149,11 @@
         }
       }
     },
-
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "User login",
         "description": "Logs in a user with the provided credentials.",
         "parameters": [
@@ -108,10 +163,18 @@
             "description": "User object that contains the login credentials",
             "required": false,
             "schema": {
-              "required": ["name", "photoUrls"],
+              "required": [
+                "name",
+                "photoUrls"
+              ],
               "properties": {
-                "email": { "type": "string", "format": "email" },
-                "password": { "type": "string" }
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -150,10 +213,11 @@
         }
       }
     },
-
     "/auth/forgotPassword": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Forgot password",
         "description": "Initiates the password recovery process for a user.",
         "parameters": [
@@ -163,9 +227,15 @@
             "description": "User object that contains the login credentials",
             "required": false,
             "schema": {
-              "required": ["name", "photoUrls"],
+              "required": [
+                "name",
+                "photoUrls"
+              ],
               "properties": {
-                "email": { "type": "string", "format": "email" }
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
               }
             }
           }
@@ -201,10 +271,11 @@
         }
       }
     },
-
     "/auth/resetPassword": {
       "put": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Reset password",
         "description": "Resets the password for a user.",
         "parameters": [
@@ -214,11 +285,21 @@
             "description": "User object that contains the login credentials",
             "required": false,
             "schema": {
-              "required": ["name", "photoUrls"],
+              "required": [
+                "name",
+                "photoUrls"
+              ],
               "properties": {
-                "email": { "type": "string", "format": "email" },
-                "password": { "type": "string" },
-                "token": { "type": "string" }
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -254,10 +335,11 @@
         }
       }
     },
-
     "/auth/refreshToken": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Refresh access token",
         "description": "Generates a new access token using a refresh token.",
         "responses": {
@@ -294,10 +376,11 @@
         }
       }
     },
-
     "/auth/logout": {
       "get": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "User logout",
         "description": "Logs out the currently authenticated user.",
         "responses": {
@@ -334,13 +417,20 @@
         }
       }
     },
-
     "/user/current": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Get all User in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -375,14 +465,21 @@
         }
       }
     },
-
     "/user": {
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Update a User by ID",
         "description": "Updates a user with the given ID.",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "formData",
@@ -396,14 +493,29 @@
             "description": "User object that contains the login credentials",
             "required": false,
             "schema": {
-              "required": ["name"],
+              "required": [
+                "name"
+              ],
               "properties": {
-                "sex": { "type": "string" },
-                "email": { "type": "string" },
-                "address": { "type": "string" },
-                "name": { "type": "string" },
-                "birthday": { "type": "string", "format": "date" },
-                "phone": { "type": "string" }
+                "sex": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "birthday": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "phone": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -442,10 +554,11 @@
         }
       }
     },
-
     "/post": {
       "get": {
-        "tags": ["Post"],
+        "tags": [
+          "Post"
+        ],
         "summary": "Get all Post in system",
         "parameters": [
           {
@@ -497,10 +610,11 @@
         }
       }
     },
-
     "/post/search": {
       "get": {
-        "tags": ["Post"],
+        "tags": [
+          "Post"
+        ],
         "summary": "Get all Post in system",
         "parameters": [
           {
@@ -518,7 +632,6 @@
             "type": "number"
           }
         ],
-
         "responses": {
           "200": {
             "description": "success",
@@ -553,7 +666,6 @@
         }
       }
     },
-
     "/post/{itemid}": {
       "parameters": [
         {
@@ -565,7 +677,9 @@
         }
       ],
       "get": {
-        "tags": ["Post"],
+        "tags": [
+          "Post"
+        ],
         "summary": "Get Post with given ID",
         "responses": {
           "200": {
@@ -601,14 +715,21 @@
         }
       }
     },
-
     "/cart": {
       "get": {
-        "tags": ["Cart"],
+        "tags": [
+          "Cart"
+        ],
         "summary": "Get all Carts in the system",
         "description": "Retrieves all carts in the system.",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -643,11 +764,19 @@
         }
       },
       "post": {
-        "tags": ["Cart"],
+        "tags": [
+          "Cart"
+        ],
         "summary": "Create a new Cart",
         "description": "Creates a new cart.",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -682,7 +811,6 @@
         }
       }
     },
-
     "/cart/{cartid}": {
       "parameters": [
         {
@@ -694,11 +822,19 @@
         }
       ],
       "delete": {
-        "tags": ["Cart"],
+        "tags": [
+          "Cart"
+        ],
         "summary": "Delete a Cart by ID",
         "description": "Deletes a cart with the given ID.",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -733,11 +869,19 @@
         }
       },
       "put": {
-        "tags": ["Cart"],
+        "tags": [
+          "Cart"
+        ],
         "summary": "Update a Cart by ID",
         "description": "Updates a cart with the given ID.",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -774,7 +918,9 @@
     },
     "/comment": {
       "get": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Get all Comment in system",
         "parameters": [
           {
@@ -826,7 +972,9 @@
         }
       },
       "post": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "description": "Create new Comment in system",
         "parameters": [
           {
@@ -835,7 +983,9 @@
             "description": "User that we want to create"
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -870,10 +1020,11 @@
         }
       }
     },
-
     "/like": {
       "post": {
-        "tags": ["Like"],
+        "tags": [
+          "Like"
+        ],
         "description": "Create new user in system",
         "parameters": [
           {
@@ -882,16 +1033,29 @@
             "description": "User object that contains the login credentials",
             "required": false,
             "schema": {
-              "required": ["name", "photoUrls"],
+              "required": [
+                "name",
+                "photoUrls"
+              ],
               "properties": {
-                "itemid": { "type": "number" },
-                "shopid": { "type": "number" }
+                "itemid": {
+                  "type": "number"
+                },
+                "shopid": {
+                  "type": "number"
+                }
               }
             }
           }
         ],
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -926,10 +1090,18 @@
         }
       },
       "get": {
-        "tags": ["Like"],
+        "tags": [
+          "Like"
+        ],
         "summary": "Get all Like in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -964,7 +1136,6 @@
         }
       }
     },
-
     "/like/{itemid}": {
       "parameters": [
         {
@@ -976,10 +1147,18 @@
         }
       ],
       "delete": {
-        "tags": ["Like"],
+        "tags": [
+          "Like"
+        ],
         "summary": "Get Like with given ID",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -1014,13 +1193,20 @@
         }
       }
     },
-
     "/search": {
       "get": {
-        "tags": ["Search"],
+        "tags": [
+          "Search"
+        ],
         "summary": "Get all Search in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success"
@@ -1052,10 +1238,18 @@
         }
       },
       "post": {
-        "tags": ["Search"],
+        "tags": [
+          "Search"
+        ],
         "summary": "Get all Search in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -1064,7 +1258,9 @@
             "required": false,
             "schema": {
               "properties": {
-                "text": { "type": "string" }
+                "text": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -1100,10 +1296,11 @@
         }
       }
     },
-
     "/banner": {
       "get": {
-        "tags": ["Banner"],
+        "tags": [
+          "Banner"
+        ],
         "summary": "Get all banner in system",
         "responses": {
           "200": {
@@ -1139,7 +1336,6 @@
         }
       }
     },
-
     "/categoryTree/{level}": {
       "parameters": [
         {
@@ -1151,7 +1347,9 @@
         }
       ],
       "get": {
-        "tags": ["CategoryTree"],
+        "tags": [
+          "CategoryTree"
+        ],
         "summary": "Get CategoryTree with given ID",
         "responses": {
           "200": {
@@ -1187,7 +1385,6 @@
         }
       }
     },
-
     "/categoryTree/parent/{catid}": {
       "parameters": [
         {
@@ -1199,7 +1396,9 @@
         }
       ],
       "get": {
-        "tags": ["CategoryTree"],
+        "tags": [
+          "CategoryTree"
+        ],
         "summary": "Get Like with given ID",
         "responses": {
           "200": {
@@ -1235,10 +1434,11 @@
         }
       }
     },
-
     "/industry": {
       "get": {
-        "tags": ["Industry"],
+        "tags": [
+          "Industry"
+        ],
         "summary": "Get all industry in system",
         "responses": {
           "200": {
@@ -1274,10 +1474,11 @@
         }
       }
     },
-
     "/industry/Category": {
       "get": {
-        "tags": ["Industry"],
+        "tags": [
+          "Industry"
+        ],
         "parameters": [
           {
             "name": "limit",
@@ -1336,10 +1537,11 @@
         }
       }
     },
-
     "/notification": {
       "get": {
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "summary": "Get all notification in system",
         "responses": {
           "200": {
@@ -1375,13 +1577,20 @@
         }
       }
     },
-
     "/order": {
       "get": {
-        "tags": ["Order"],
+        "tags": [
+          "Order"
+        ],
         "summary": "Get all Order in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -1416,10 +1625,18 @@
         }
       },
       "post": {
-        "tags": ["Order"],
+        "tags": [
+          "Order"
+        ],
         "summary": "Get all Order in system",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -1454,7 +1671,6 @@
         }
       }
     },
-
     "/order/{orderid}": {
       "parameters": [
         {
@@ -1466,10 +1682,18 @@
         }
       ],
       "put": {
-        "tags": ["Order"],
+        "tags": [
+          "Order"
+        ],
         "summary": "put Shop with given ID",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -1504,10 +1728,18 @@
         }
       },
       "delete": {
-        "tags": ["Order"],
+        "tags": [
+          "Order"
+        ],
         "summary": "delete Shop with given ID",
-        "security": [{ "Bearer": [] }],
-        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -1542,7 +1774,6 @@
         }
       }
     },
-
     "/shop/{shopid}": {
       "parameters": [
         {
@@ -1554,7 +1785,9 @@
         }
       ],
       "get": {
-        "tags": ["Shop"],
+        "tags": [
+          "Shop"
+        ],
         "summary": "Get Shop with given ID",
         "responses": {
           "200": {
@@ -1607,11 +1840,12 @@
         },
         "response": {
           "type": "array",
-          "items": { "$ref": "#/definitions/Banner" }
+          "items": {
+            "$ref": "#/definitions/Banner"
+          }
         }
       }
     },
-
     "Industry_Response": {
       "type": "object",
       "properties": {
@@ -1631,7 +1865,6 @@
         }
       }
     },
-
     "Cart_Response": {
       "type": "object",
       "properties": {
@@ -1651,7 +1884,6 @@
         }
       }
     },
-
     "Category_Response": {
       "type": "object",
       "properties": {
@@ -1671,7 +1903,6 @@
         }
       }
     },
-
     "HomeCategory_Response": {
       "type": "object",
       "properties": {
@@ -1687,11 +1918,12 @@
         },
         "response": {
           "type": "array",
-          "items": { "$ref": "#/definitions/HomeCategory" }
+          "items": {
+            "$ref": "#/definitions/HomeCategory"
+          }
         }
       }
     },
-
     "Comment_Response": {
       "type": "object",
       "properties": {
@@ -1708,7 +1940,6 @@
         }
       }
     },
-
     "Like_Response": {
       "type": "object",
       "properties": {
@@ -1725,7 +1956,6 @@
         }
       }
     },
-
     "Notification_Response": {
       "type": "object",
       "properties": {
@@ -1738,11 +1968,12 @@
         },
         "response": {
           "type": "array",
-          "items": { "$ref": "#/definitions/Notification" }
+          "items": {
+            "$ref": "#/definitions/Notification"
+          }
         }
       }
     },
-
     "Order_Response": {
       "type": "object",
       "properties": {
@@ -1759,7 +1990,6 @@
         }
       }
     },
-
     "Post_Response": {
       "type": "object",
       "properties": {
@@ -1776,7 +2006,6 @@
         }
       }
     },
-
     "Shop_Response": {
       "type": "object",
       "properties": {
@@ -1789,11 +2018,12 @@
         },
         "response": {
           "type": "array",
-          "items": { "$ref": "#/definitions/Shop" }
+          "items": {
+            "$ref": "#/definitions/Shop"
+          }
         }
       }
     },
-
     "TierVariation_Response": {
       "type": "object",
       "properties": {
@@ -1810,7 +2040,6 @@
         }
       }
     },
-
     "User_Response": {
       "type": "object",
       "properties": {
@@ -1823,309 +2052,666 @@
         },
         "response": {
           "type": "array",
-          "items": { "$ref": "#/definitions/User" }
+          "items": {
+            "$ref": "#/definitions/User"
+          }
         }
       }
     },
-
     "Attribute": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "name": { "type": "string" },
-        "value": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Banner": {
       "properties": {
-        "id": { "type": "number" },
-        "image_url": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Cart": {
       "properties": {
-        "id": { "type": "number" },
-        "cartid": { "type": "number" },
-        "userid": { "type": "string" },
-        "itemid": { "type": "number" },
-        "shopid": { "type": "number" },
-        "amount": { "type": "number" },
-        "option": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "cartid": {
+          "type": "number"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "option": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Category": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "display_name": { "type": "string" },
-        "catid": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "catid": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Comment": {
       "properties": {
-        "id": { "type": "number" },
-        "userid": { "type": "string" },
-        "orderid": { "type": "number" },
-        "itemid": { "type": "number" },
-        "cmtid": { "type": "number" },
-        "rating": { "type": "number" },
-        "shopid": { "type": "number" },
-        "comment": { "type": "string" },
-        "rating_star": { "type": "number" },
-        "status": { "type": "number" },
-        "author_username": { "type": "string" },
-        "author_portrait": { "type": "string" },
-        "images": { "type": "string" },
-        "cover": { "type": "string" },
-        "videos": { "type": "string" },
-        "model_name": { "type": "string" },
-        "options": { "type": "string" },
-        "like_count": { "type": "number" },
-        "liked": { "type": "boolean" },
-        "mtime": { "type": "string", "format": "date-time" },
-        "ctime": { "type": "string", "format": "date-time" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "orderid": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "cmtid": {
+          "type": "number"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "rating_star": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        },
+        "author_username": {
+          "type": "string"
+        },
+        "author_portrait": {
+          "type": "string"
+        },
+        "images": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "videos": {
+          "type": "string"
+        },
+        "model_name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "string"
+        },
+        "like_count": {
+          "type": "number"
+        },
+        "liked": {
+          "type": "boolean"
+        },
+        "mtime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ctime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "CommentReplie": {
       "properties": {
-        "id": { "type": "number" },
-        "orderid": { "type": "number" },
-        "itemid": { "type": "number" },
-        "cmtid": { "type": "number" },
-        "userid": { "type": "string" },
-        "shopid": { "type": "number" },
-        "comment": { "type": "string" },
-        "ctime": { "type": "string", "format": "date-time" },
-        "mtime": { "type": "string", "format": "date-time" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "orderid": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "cmtid": {
+          "type": "number"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "ctime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mtime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Description": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "description": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "HomeCategory": {
       "properties": {
-        "id": { "type": "number" },
-        "display_name": { "type": "string" },
-        "catid": { "type": "number" },
-        "parent_catid": { "type": "number" },
-        "name": { "type": "string" },
-        "image": { "type": "string" },
-        "unselected_image": { "type": "string" },
-        "selected_image": { "type": "string" },
-        "level": { "type": "number" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "catid": {
+          "type": "number"
+        },
+        "parent_catid": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Industry": {
       "properties": {
-        "id": { "type": "number" },
-        "category_name": { "type": "string" },
-        "display_name": { "type": "string" },
-        "images": { "type": "string" },
-        "path_category_name": { "type": "string" },
-        "path_category_id": { "type": "string" },
-        "catid": { "type": "number" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "category_name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "images": {
+          "type": "string"
+        },
+        "path_category_name": {
+          "type": "string"
+        },
+        "path_category_id": {
+          "type": "string"
+        },
+        "catid": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
-    "Like": {
-      "properties": {
-        "id": { "type": "number" },
-        "userid": { "type": "string" },
-        "itemid": { "type": "number" },
-        "shopid": { "type": "number" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
-      }
-    },
-
     "Notification": {
       "properties": {
-        "id": { "type": "number" },
-        "image": { "type": "string" },
-        "title": { "type": "string" },
-        "content": { "type": "string" },
-        "userid": { "type": "string" },
-        "seen": { "type": "boolean" },
-        "time": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "image": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "seen": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Order": {
       "properties": {
-        "id": { "type": "number" },
-        "orderid": { "type": "string" },
-        "userid": { "type": "string" },
-        "itemid": { "type": "number" },
-        "shopid": { "type": "number" },
-        "amount": { "type": "number" },
-        "option": { "type": "string" },
-        "state": { "type": "string" },
-        "note": { "type": "string" },
-        "shiped": { "type": "boolean" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "orderid": {
+          "type": "string"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "option": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "shiped": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Post": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "shopid": { "type": "number" },
-        "currency": { "type": "string" },
-        "stock": { "type": "number" },
-        "status": { "type": "number" },
-        "sold": { "type": "number" },
-        "liked_count": { "type": "number" },
-        "catid": { "type": "number" },
-        "cmt_count": { "type": "number" },
-        "discount": { "type": "string" },
-        "raw_discount": { "type": "number" },
-        "size_chart": { "type": "string" },
-        "shop_name": { "type": "string" },
-        "transparent_background_image": { "type": "string" },
-        "images": { "type": "string" },
-        "view_count": { "type": "number" },
-        "name": { "type": "string" },
-        "image": { "type": "string" },
-        "price": { "type": "number" },
-        "price_min": { "type": "number" },
-        "price_max": { "type": "number" },
-        "historical_sold": { "type": "number" },
-        "price_min_before_discount": { "type": "number" },
-        "price_max_before_discount": { "type": "number" },
-        "shop_rating": { "type": "number" },
-        "filename": { "type": "string" },
-        "liked": { "type": "boolean" },
-        "ctime": { "type": "string", "format": "date-time" },
-        "show_free_shipping": { "type": "boolean" },
-        "is_video": { "type": "boolean" },
-        "is_attributes": { "type": "boolean" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "stock": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        },
+        "sold": {
+          "type": "number"
+        },
+        "catid": {
+          "type": "number"
+        },
+        "cmt_count": {
+          "type": "number"
+        },
+        "discount": {
+          "type": "string"
+        },
+        "raw_discount": {
+          "type": "number"
+        },
+        "shop_name": {
+          "type": "string"
+        },
+        "transparent_background_image": {
+          "type": "string"
+        },
+        "images": {
+          "type": "string"
+        },
+        "view_count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "price_min": {
+          "type": "number"
+        },
+        "price_max": {
+          "type": "number"
+        },
+        "historical_sold": {
+          "type": "number"
+        },
+        "price_min_before_discount": {
+          "type": "number"
+        },
+        "price_max_before_discount": {
+          "type": "number"
+        },
+        "shop_rating": {
+          "type": "number"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "liked": {
+          "type": "boolean"
+        },
+        "ctime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "show_free_shipping": {
+          "type": "boolean"
+        },
+        "is_attributes": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Search": {
       "properties": {
-        "id": { "type": "number" },
-        "userid": { "type": "string" },
-        "text": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Shop": {
       "properties": {
-        "id": { "type": "number" },
-        "shopid": { "type": "number" },
-        "userid": { "type": "string" },
-        "item_count": { "type": "number" },
-        "rating_star": { "type": "number" },
-        "name": { "type": "string" },
-        "cover": { "type": "string" },
-        "follower_count": { "type": "number" },
-        "rating_bad": { "type": "number" },
-        "rating_good": { "type": "number" },
-        "rating_normal": { "type": "number" },
-        "status": { "type": "number" },
-        "shop_location": { "type": "string" },
-        "username": { "type": "string" },
-        "portrait": { "type": "string" },
-        "ctime": { "type": "string", "format": "date-time" },
-        "mtime": { "type": "string", "format": "date-time" },
-        "response_rate": { "type": "number" },
-        "country": { "type": "string" },
-        "response_time": { "type": "number" },
-        "description": { "type": "string" },
-        "followed": { "type": "boolean" },
-        "last_active_time": { "type": "number" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "shopid": {
+          "type": "number"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "item_count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "username": {
+          "type": "string"
+        },
+        "portrait": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "TierVariation": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "name": { "type": "string" },
-        "option": { "type": "string" },
-        "images": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "option": {
+          "type": "string"
+        },
+        "images": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "User": {
       "properties": {
-        "sex": { "type": "string" },
-        "userid": { "type": "string" },
-        "shopid": { "type": "number" },
-        "password": { "type": "string" },
-        "email": { "type": "string" },
-        "name": { "type": "string" },
-        "address": { "type": "string" },
-        "birthday": { "type": "string", "format": "date-time" },
-        "phone": { "type": "number" },
-        "avatar": { "type": "string" },
-        "role": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "sex": {
+          "type": "string"
+        },
+        "userid": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "phone": {
+          "type": "number"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Video": {
       "properties": {
-        "id": { "type": "number" },
-        "itemid": { "type": "number" },
-        "video_id": { "type": "string" },
-        "thumb_url": { "type": "string" },
-        "duration": { "type": "number" },
-        "version": { "type": "number" },
-        "width": { "type": "number" },
-        "height": { "type": "number" },
-        "defn": { "type": "string" },
-        "profile": { "type": "string" },
-        "url": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
+        "id": {
+          "type": "number"
+        },
+        "itemid": {
+          "type": "number"
+        },
+        "video_id": {
+          "type": "string"
+        },
+        "thumb_url": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "version": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "defn": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
-
     "Response_400": {
       "type": "object",
       "properties": {
@@ -2138,7 +2724,6 @@
         }
       }
     },
-
     "Response_401": {
       "type": "object",
       "properties": {
@@ -2151,7 +2736,6 @@
         }
       }
     },
-
     "Response_404": {
       "type": "object",
       "properties": {
@@ -2164,7 +2748,6 @@
         }
       }
     },
-
     "Response_500": {
       "type": "object",
       "properties": {
