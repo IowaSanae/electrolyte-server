@@ -54,7 +54,7 @@ const initRoutes = (app: Express) => {
   app.use('/api/admin/roomAdmin', RoomAdminRoute)
 
   // INSERT
-  app.use('/api/insert', InsertRoute)
+  // app.use('/api/insert', InsertRoute)
 
   // Middleware for /api-docs-client
   app.use('/api/client/docs', serveSwaggerClient, swaggerUi.setup(swaggerClientDocument))
